@@ -1,11 +1,13 @@
 import React from "react";
 import { GlobalStyle } from "./styles/GlobalStyles";
+import { Layout } from "./components/Layout";
 
 const App = () => {
   return (
     <>
-      <GlobalStyle />
-      <h1>Free-Market</h1>
+      <Layout>
+        <GlobalStyle />
+      </Layout>
     </>
   );
 };
