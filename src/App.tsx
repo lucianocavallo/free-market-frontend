@@ -1,10 +1,10 @@
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { Layout } from "./components/Layout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { Login } from "./pages/Login";
-import { SignUp } from "./pages/Signup";
-import { NotFound } from "./pages/NotFound";
+import { HomePage } from "./pages/HomePage";
+import { LoginPage } from "./pages/LoginPage";
+import { SignUpPage } from "./pages/SignupPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 const App: React.FC = () => {
   return (
@@ -12,10 +12,10 @@ const App: React.FC = () => {
       <Layout>
         <GlobalStyle />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>
