@@ -10,7 +10,8 @@ const Container = styled.div`
   width: 100%;
   border-radius: 8px;
   padding: 10px;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.09);
+  background: ${vars.pr_white};
   & figure {
     display: grid;
     place-content: center;

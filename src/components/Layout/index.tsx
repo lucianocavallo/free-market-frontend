@@ -1,12 +1,12 @@
-import { FC } from "react";
 import { Header } from "../Header";
+import { Container } from "./styles";
 
-const Layout: FC = ({ children }) => {
+const Layout: React.FC = ({ children }) => {
   return (
-    <div>
+    <Container>
       <Header />
       {children}
-    </div>
+    </Container>
   );
 };
 

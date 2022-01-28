@@ -4,7 +4,7 @@ import { SecondaryButton } from "../SecondaryButton";
 import { Container, SubContainer, Form, Input } from "./styles";
 import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Login = () => {
   const navigate = useNavigate();
 
   const form: React.RefObject<HTMLFormElement> = useRef(null);
@@ -16,37 +16,30 @@ const Signup = () => {
     const data = {
       email: formData.get("email"),
       password: formData.get("password"),
-      name: formData.get("name"),
-      phone: formData.get("phone"),
     };
     console.log(data);
   };
 
   const handleLoginClick = () => {
-    navigate("/login");
+    navigate("/signup");
   };
-
   return (
     <Container>
       <SubContainer>
         <Form onSubmit={handleSubmit} ref={form}>
-          <h2>Sign up</h2>
-          <label htmlFor="name">Name:</label>
-          <Input required type="text" id="name" name="name" />
+          <h2>Login</h2>
           <label htmlFor="email">Email:</label>
           <Input required type="text" id="email" name="email" />
           <label htmlFor="password">Password:</label>
           <Input required type="password" id="password" name="password" />
-          <label htmlFor="phone">Phone:</label>
-          <Input required type="tel" id="phone" name="phone" />
-          <PrimaryButton>Create Account</PrimaryButton>
+          <PrimaryButton>Login</PrimaryButton>
         </Form>
         <SecondaryButton type="button" onClick={handleLoginClick}>
-          Login
+          Create Account
         </SecondaryButton>
       </SubContainer>
     </Container>
   );
 };
 
-export { Signup };
+export { Login };
