@@ -10,7 +10,7 @@ const Container = styled.div`
 const Button = styled.button`
   font-size: 30px;
   margin-right: 8px;
-  color: ${vars.pr_gray};
+  color: ${vars.pr_blue};
   @media (max-width: 600px) {
     display: none;
   }

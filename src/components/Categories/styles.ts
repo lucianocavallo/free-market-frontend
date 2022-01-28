@@ -15,17 +15,24 @@ const Ul = styled.ul`
     display: flex;
     align-items: center;
   }
+  & li:nth-child(1) {
+  }
 `;
 
 const Button = styled.button`
   display: flex;
   align-items: center;
-  margin-left: 5px;
+  padding: 3px 2px 1px;
+  border: 1px solid transparent;
+  &.active {
+    border: 1px solid black;
+    border-radius: 8px;
+  }
 `;
 
 const Span = styled.span`
   line-height: 20px;
-  color: ${vars.sc_gray};
+  color: ${vars.pr_gray};
   font-size: 30px;
   margin-right: 2px;
   @media (max-width: 920px) {

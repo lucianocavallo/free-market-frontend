@@ -5,6 +5,7 @@ const vars = {
   pr_font: "'Dongle', sans-serif",
   pr_red: "#be5944",
   pr_blue: "#1891E9",
+  sc_blue: "#44aefb",
 };
 
 export default vars;
