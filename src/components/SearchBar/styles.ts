@@ -3,7 +3,7 @@ import vars from "../../styles/vars";
 
 const Container = styled.div`
   display: inline-flex;
-  width: 600px;
+  width: 500px;
   height: 40px;
   margin-top: 2px;
   background: ${vars.pr_white};
@@ -12,7 +12,12 @@ const Container = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   align-items: center;
   padding: 0 0 0 15px;
-  @media (max-width: 768px) {
+  @media (max-width: 920px) {
+    width: 300px;
+  }
+  @media (max-width: 600px) {
+    margin-bottom: 28px;
+    width: 200px;
   }
 `;
 

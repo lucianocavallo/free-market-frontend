@@ -11,10 +11,23 @@ const Button = styled.button`
   font-size: 30px;
   margin-right: 10px;
   color: ${vars.pr_gray};
+  @media (max-width: 600px) {
+    display: none;
+  }
+`;
+
+const MenuImg = styled.img`
+  width: 30px;
+  display: none;
+  margin-right: 15px;
+  margin-bottom: 5px;
+  @media (max-width: 600px) {
+    display: inline-block;
+  }
 `;
 
 const CartImg = styled.img`
   width: 30px;
 `;
 
-export { Container, CartImg, Button };
+export { Container, MenuImg, CartImg, Button };

@@ -1,9 +1,11 @@
 import logo from "../../assets/img/logo.svg";
-import { Img, Figure } from "./styles";
+import mini_logo from "../../assets/img/mini_logo.svg";
+import { LogoImg, Figure, MiniLogoImg } from "./styles";
 
 const Logo = () => (
   <Figure>
-    <Img src={logo} alt="" />
+    <LogoImg src={logo} alt="logo" />
+    <MiniLogoImg src={mini_logo} alt="logo" />
   </Figure>
 );
 

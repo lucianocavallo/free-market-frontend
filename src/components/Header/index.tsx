@@ -1,5 +1,5 @@
 import { SearchBar } from "../SearchBar";
-import { HeaderButtons } from "../HeaderButtons";
+import { Menu } from "../Menu";
 import { Logo } from "../Logo";
 // import { Categories } from "../Categories";
 import { Container, UpperNav } from "./styles";
@@ -11,7 +11,7 @@ const Header: React.FC = () => {
         <Logo />
         <SearchBar />
       </UpperNav>
-      <HeaderButtons />
+      <Menu />
     </Container>
   );
 };
