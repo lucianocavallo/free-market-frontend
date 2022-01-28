@@ -5,7 +5,6 @@ const Figure = styled.figure``;
 const LogoImg = styled.img`
   width: 200px;
   margin-right: 20px;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   @media (max-width: 920px) {
     display: none;
   }

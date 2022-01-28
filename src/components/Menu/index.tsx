@@ -11,7 +11,7 @@ const Menu = () => {
       <button>
         <Figure>
           <CartImg src={cart} alt="" />
-          <span>0</span>
+          <span></span>
         </Figure>
       </button>
     </Container>
