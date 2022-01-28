@@ -1,6 +1,6 @@
 import cart from "../../assets/icons/cart.svg";
 import menu from "../../assets/icons/menu.svg";
-import { Container, CartImg, Button, MenuImg } from "./styles";
+import { Container, CartImg, Button, MenuImg, Figure } from "./styles";
 
 const Menu = () => {
   return (
@@ -9,9 +9,10 @@ const Menu = () => {
       <Button>login</Button>
       <MenuImg src={menu} alt="" />
       <button>
-        <figure>
+        <Figure>
           <CartImg src={cart} alt="" />
-        </figure>
+          <span>0</span>
+        </Figure>
       </button>
     </Container>
   );

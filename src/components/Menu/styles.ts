@@ -30,4 +30,22 @@ const CartImg = styled.img`
   width: 30px;
 `;
 
-export { Container, MenuImg, CartImg, Button };
+const Figure = styled.figure`
+  position: relative;
+  & span {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border-radius: 50%;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: ${vars.pr_red};
+    color: ${vars.pr_white};
+    font-size: 20px;
+    line-height: 22px;
+    text-align: center;
+  }
+`;
+
+export { Container, MenuImg, CartImg, Button, Figure };
