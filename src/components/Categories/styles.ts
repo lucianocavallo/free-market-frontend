@@ -2,9 +2,18 @@ import styled from "styled-components";
 import vars from "../../styles/vars";
 
 const Container = styled.div`
-  text-align: center;
   @media (max-width: 600px) {
     display: none;
+  }
+`;
+
+const Ul = styled.ul`
+  display: flex;
+  align-items: center;
+  height: 100%;
+  & li {
+    display: flex;
+    align-items: center;
   }
 `;
 
@@ -15,10 +24,10 @@ const Button = styled.button`
 `;
 
 const Span = styled.span`
-  line-height: 40px;
+  line-height: 20px;
   color: ${vars.sc_gray};
   font-size: 30px;
-  margin-right: 8px;
+  margin-right: 2px;
   @media (max-width: 920px) {
     font-size: 28px;
   }
@@ -31,4 +40,4 @@ const Img = styled.img`
   }
 `;
 
-export { Container, Span, Img, Button };
+export { Container, Span, Img, Button, Ul };

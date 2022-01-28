@@ -16,11 +16,10 @@ const MiniLogoImg = styled.img`
   display: none;
   @media (max-width: 920px) {
     display: block;
-    margin-right: 30px;
+    margin-right: 5px;
   }
   @media (max-width: 600px) {
     width: 45px;
-    margin-right: 15px;
   }
 `;
 

@@ -1,5 +1,4 @@
 import searchIcon from "../../assets/icons/search.svg";
-import { Categories } from "../Categories";
 import { Container, Input, Img, LineDiv } from "./styles";
 
 const SearchBar: React.FC = () => {
@@ -12,7 +11,6 @@ const SearchBar: React.FC = () => {
           <Img src={searchIcon} alt="" />
         </figure>
       </Container>
-      <Categories />
     </div>
   );
 };

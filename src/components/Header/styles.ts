@@ -8,9 +8,17 @@ const Container = styled.div`
   margin-bottom: 10px;
 `;
 
-const UpperNav = styled.nav`
+const Nav = styled.nav`
+  width: 100%;
+  justify-content: center;
   display: flex;
-  margin-top: 20px;
+  margin: 15px 0;
+  @media (max-width: 600px) {
+    width: 90%;
+    max-width: 280px;
+    justify-content: space-between;
+    margin: 15px auto;
+  }
 `;
 
-export { Container, UpperNav };
+export { Container, Nav };

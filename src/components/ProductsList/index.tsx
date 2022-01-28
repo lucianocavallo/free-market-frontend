@@ -1,13 +1,16 @@
-import { Container } from "./styles";
+import { Container, Div, Button } from "./styles";
 import { ProductCard } from "../ProductCard";
 
 const ProductsList = () => {
   return (
     <Container>
-      <div>
+      <Div>
         <ProductCard />
         <ProductCard />
-      </div>
+        <ProductCard />
+        <ProductCard />
+      </Div>
+      <Button>Load more items</Button>
     </Container>
   );
 };
