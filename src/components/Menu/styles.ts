@@ -4,7 +4,7 @@ import vars from "../../styles/vars";
 const Container = styled.div`
   display: inline-flex;
   margin-left: 20px;
-  /* height: 50px; */
+  align-items: center;
 `;
 
 const Button = styled.button`
