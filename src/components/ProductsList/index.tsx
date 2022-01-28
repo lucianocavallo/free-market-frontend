@@ -1,14 +1,13 @@
-import { Container, CardsContainer } from "./styles";
+import { Container } from "./styles";
 import { ProductCard } from "../ProductCard";
 
 const ProductsList = () => {
   return (
     <Container>
-      <h1>Products List</h1>
-      <CardsContainer>
+      <div>
         <ProductCard />
         <ProductCard />
-      </CardsContainer>
+      </div>
     </Container>
   );
 };

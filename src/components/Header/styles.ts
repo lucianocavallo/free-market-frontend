@@ -5,6 +5,7 @@ const Container = styled.div`
   background-color: #fff159;
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 `;
 
 const UpperNav = styled.nav`
