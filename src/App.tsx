@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { Layout } from "./components/Layout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -8,18 +7,6 @@ import { SignUpPage } from "./pages/SignupPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 
 const App: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  useEffect(() => {
-    const url = `${process.env.API_URL}/products`;
-
-    (async () => {
-      const res = await fetch(url);
-      const data = await res.json();
-      console.log(data);
-      setProducts(data);
-    })();
-  }, []);
-
   return (
     <BrowserRouter>
       <Layout>

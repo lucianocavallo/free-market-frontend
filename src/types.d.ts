@@ -11,3 +11,8 @@ interface Product {
   image: string;
   category: string;
 }
+
+interface AppContext {
+  products: Product[] | any[];
+  setProducts: React.Dispatch<React.SetStateAction<Product[]>> | undefined;
+}
