@@ -16,7 +16,8 @@ const User: React.FC = () => {
     <Container>
       <SubContainer>
         <Div>
-          <h2>Hello: {user?.email}</h2>
+          <h2>Hello: </h2>
+          <h2> {user?.email}</h2>
           <p>Your order: </p>
         </Div>
         <PrimaryButton onClick={handleLogOut}>Logout</PrimaryButton>

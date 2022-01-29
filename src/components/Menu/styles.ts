@@ -14,13 +14,25 @@ const EmailButton = styled.button`
   font-size: 30px;
   margin-right: 8px;
   color: ${vars.pr_blue};
-  max-width: 170px;
-  overflow: scroll;
+  max-width: 190px;
+  overflow-x: scroll;
   &::-webkit-scrollbar {
-    display: none;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: ${vars.sc_gray};
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: ${vars.pr_blue};
   }
   @media (max-width: 600px) {
     font-size: 25px;
+    max-width: 170px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
 

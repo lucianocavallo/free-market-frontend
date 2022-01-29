@@ -22,7 +22,8 @@ const Div = styled.div`
   flex-direction: column;
   width: 100%;
   & h2 {
-    font-size: 40px;
+    font-size: 35px;
+    word-break: break-all;
     text-align: center;
     color: ${vars.pr_gray};
   }
@@ -34,16 +35,4 @@ const Div = styled.div`
   }
 `;
 
-const Input = styled.input`
-  height: 40px;
-  padding-left: 8px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.18);
-  border: 1px solid transparent;
-  &.error {
-    border: 1px solid rgba(255, 0, 0, 0.2);
-  }
-`;
-
-export { Container, SubContainer, Div, Input };
+export { Container, SubContainer, Div };

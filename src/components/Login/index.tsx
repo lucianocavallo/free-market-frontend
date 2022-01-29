@@ -35,7 +35,6 @@ const Login = () => {
       if (res.status === 200) {
         const resData = await res.json();
         if (setUser !== undefined) {
-          setLoading(false);
           const newUser = {
             email: resData.user.email,
             token: resData.token,
@@ -49,13 +48,15 @@ const Login = () => {
       }
     } catch (error) {
       console.error(error);
-      setLoading(false);
     }
   };
 
   const handleOnInputChange = () => {
     if (error) {
       setError(false);
+    }
+    if (loading) {
+      setLoading(false);
     }
   };
 
