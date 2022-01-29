@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import vars from "../../styles/vars";
 
 const Container = styled.div`
   width: 100%;
-  background-color: #fff159;
+  background-color: ${vars.pr_yellow};
   display: flex;
   justify-content: center;
   margin-bottom: 10px;

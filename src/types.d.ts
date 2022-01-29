@@ -15,4 +15,14 @@ interface Product {
 interface AppContext {
   products: Product[] | any[];
   setProducts: React.Dispatch<React.SetStateAction<Product[]>> | undefined;
+  user: User;
+  setUser: React.Dispatch<React.SetStateAction<User>> | undefined;
 }
+
+type User =
+  | {
+      email?: string;
+      token?: string;
+      role?: string;
+    }
+  | undefined;

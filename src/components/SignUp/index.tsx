@@ -4,6 +4,13 @@ import { SecondaryButton } from "../SecondaryButton";
 import { Container, SubContainer, Form, Input } from "./styles";
 import { useNavigate } from "react-router-dom";
 
+// model json to send in the body when creating a customer
+//   "firstName": "Luciano2",
+//   "lastName": "Cavallo2",
+//   "phone": "989834532",
+//   "user": {"email": "luciano@customer.com", "password": "admin123"}
+// }
+
 const Signup = () => {
   const navigate = useNavigate();
 

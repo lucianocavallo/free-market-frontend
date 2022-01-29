@@ -30,11 +30,6 @@ const Categories = () => {
             <Span>Toys</Span>
           </Button>
         </li>
-        <li>
-          <Button>
-            <Span>Others</Span>
-          </Button>
-        </li>
       </Ul>
     </Container>
   );

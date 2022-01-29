@@ -7,6 +7,7 @@ const vars = {
   pr_blue: "#1891E9",
   sc_blue: "#44aefb",
   bg: "#e9e5d6",
+  pr_yellow: "#fff159",
 };
 
 export default vars;

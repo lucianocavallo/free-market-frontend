@@ -1,6 +1,4 @@
 import { Container, Info } from "./styles";
-import bike from "../../assets/img/bike_img.png";
-// import bike from "../../assets/img/cellphone.png";
 import addToCart from "../../assets/icons/add_to_cart.svg";
 import React from "react";
 
