@@ -24,5 +24,12 @@ type User =
       email?: string;
       token?: string;
       role?: string;
+      order?: {
+        products: string[];
+      };
     }
   | undefined;
+
+interface ErrorMsg {
+  error: string;
+}

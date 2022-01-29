@@ -40,21 +40,9 @@ const Input = styled.input`
   margin-bottom: 10px;
   font-size: 16px;
   box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.18);
+  border: 1px solid transparent;
   &.error {
-    background: red;
-    opacity: 0.2;
-  }
-  &.error &:after {
-    content: "an error ocurred";
-    background: red;
-    border: 1px solid red;
-    font-size: 40px;
-  }
-  &.error &:before {
-    content: "an error ocurred";
-    background: red;
-    border: 1px solid red;
-    font-size: 40px;
+    border: 1px solid rgba(255, 0, 0, 0.2);
   }
 `;
 

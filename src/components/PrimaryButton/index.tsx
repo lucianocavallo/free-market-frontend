@@ -4,8 +4,13 @@ import { Button } from "./styles";
 const PrimaryButton: React.FC<React.ComponentProps<"button">> = ({
   children,
   onClick,
+  disabled,
 }) => {
-  return <Button onClick={onClick}>{children}</Button>;
+  return (
+    <Button disabled={disabled} onClick={onClick}>
+      {children}
+    </Button>
+  );
 };
 
 export { PrimaryButton };

@@ -17,6 +17,9 @@ const Button = styled.button`
     background: ${vars.pr_white};
     color: ${vars.pr_blue};
   }
+  &[disabled] {
+    opacity: 0.2;
+  }
 `;
 
 export { Button };
