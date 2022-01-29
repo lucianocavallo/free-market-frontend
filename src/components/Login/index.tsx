@@ -35,13 +35,13 @@ const Login = () => {
       if (res.status === 200) {
         const resData = await res.json();
         if (setUser !== undefined) {
+          setLoading(false);
           const newUser = {
             email: resData.user.email,
             token: resData.token,
             role: resData.user.role,
           };
           setUser(newUser);
-          setLoading(false);
           setTimeout(() => navigate("/user"), 500);
         }
       } else {
@@ -59,9 +59,10 @@ const Login = () => {
     }
   };
 
-  const handleLoginClick = () => {
+  const handleNavigateClick = () => {
     navigate("/signup");
   };
+
   return (
     <Container>
       <SubContainer>
@@ -92,7 +93,7 @@ const Login = () => {
           )}
           <PrimaryButton disabled={loading}>Login</PrimaryButton>
         </Form>
-        <SecondaryButton type="button" onClick={handleLoginClick}>
+        <SecondaryButton type="button" onClick={handleNavigateClick}>
           Create Account
         </SecondaryButton>
       </SubContainer>

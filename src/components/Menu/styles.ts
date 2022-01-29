@@ -5,6 +5,23 @@ const Container = styled.div`
   display: inline-flex;
   margin-left: 10px;
   align-items: center;
+  @media (max-width: 600px) {
+    margin-left: 0px;
+  }
+`;
+
+const EmailButton = styled.button`
+  font-size: 30px;
+  margin-right: 8px;
+  color: ${vars.pr_blue};
+  max-width: 170px;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @media (max-width: 600px) {
+    font-size: 25px;
+  }
 `;
 
 const Button = styled.button`
@@ -52,4 +69,4 @@ const Figure = styled.figure`
   }
 `;
 
-export { Container, MenuImg, CartImg, Button, Figure };
+export { Container, MenuImg, CartImg, Button, Figure, EmailButton };

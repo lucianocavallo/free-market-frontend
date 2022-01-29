@@ -20,6 +20,7 @@ const MiniLogoImg = styled.img`
   }
   @media (max-width: 600px) {
     width: 45px;
+    margin-right: 5px;
   }
 `;
 

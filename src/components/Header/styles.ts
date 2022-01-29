@@ -15,8 +15,8 @@ const Nav = styled.nav`
   display: flex;
   margin: 15px 0;
   @media (max-width: 600px) {
-    width: 90%;
-    max-width: 280px;
+    width: 100%;
+    max-width: 300px;
     justify-content: space-between;
     margin: 15px auto;
   }

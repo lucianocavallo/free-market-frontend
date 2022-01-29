@@ -1,12 +1,19 @@
 import cart from "../../assets/icons/cart.svg";
 import menu from "../../assets/icons/menu.svg";
 import { Link } from "react-router-dom";
-import { Container, CartImg, Button, MenuImg, Figure } from "./styles";
+import {
+  Container,
+  CartImg,
+  Button,
+  EmailButton,
+  MenuImg,
+  Figure,
+} from "./styles";
 
 const Menu: React.FC<User> = ({ email }) => {
   return (
     <Container>
-      {email && <Button>{email}</Button>}
+      {email && <EmailButton>{email}</EmailButton>}
       {!email && (
         <>
           <Link to="/signup">
