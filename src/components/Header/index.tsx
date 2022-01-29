@@ -7,13 +7,7 @@ import { Context } from "../../context/context";
 
 const Header: React.FC = () => {
   const { user } = useContext(Context);
-  useEffect(() => {
-    if (user !== undefined) {
-      if (Object.keys(user).length) {
-        console.log("User: ", user);
-      }
-    }
-  }, [user]);
+
   return (
     <Container>
       <Nav>

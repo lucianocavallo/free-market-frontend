@@ -43,7 +43,7 @@ const Login = () => {
           };
           setUser(newUser);
           setLoading(false);
-          navigate("/");
+          navigate("/user");
         }
       } else {
         setError(true);
