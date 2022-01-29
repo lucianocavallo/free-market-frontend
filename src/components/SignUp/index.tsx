@@ -10,6 +10,7 @@ import { Error } from "../Error";
 
 const Signup = () => {
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const form: React.RefObject<HTMLFormElement> = useRef(null);
@@ -26,14 +27,41 @@ const Signup = () => {
 
     const validation = await CustomerSchema.validate(data)
       .then((validation) => validation)
-      .catch((error) => {
-        return error;
-      });
+      .catch((error) => error);
     if (validation.errors !== undefined) {
       setError(validation.message);
     } else {
       setError("");
-      console.log("validation successfull");
+      const newCustomer = {
+        name: validation.name,
+        phone: validation.phone,
+        user: {
+          email: validation.email,
+          password: validation.password,
+        },
+      };
+      try {
+        setLoading(true);
+        const res = await fetch(`${process.env.API_URL}/customers`, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newCustomer),
+        });
+
+        if (res.status === 200) {
+          setTimeout(() => navigate("/login"), 500);
+        } else {
+          setError(
+            "Internal Server Error, please verify that your email is correct"
+          );
+        }
+      } catch (error) {
+        console.log(error);
+      }
+      setLoading(false);
     }
   };
 
@@ -55,7 +83,7 @@ const Signup = () => {
           <label htmlFor="phone">Phone:</label>
           <Input type="tel" id="phone" name="phone" />
           {error && <Error error={error} />}
-          <PrimaryButton>Create Account</PrimaryButton>
+          <PrimaryButton disabled={loading}>Create Account</PrimaryButton>
         </Form>
         <SecondaryButton type="button" onClick={handleLoginClick}>
           Login

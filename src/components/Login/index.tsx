@@ -23,9 +23,8 @@ const Login = () => {
       email: formData.get("email"),
       password: formData.get("password"),
     };
-    const uri = `${process.env.API_URL}/auth/login`;
     try {
-      const res = await fetch(uri, {
+      const res = await fetch(`${process.env.API_URL}/auth/login`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -43,7 +42,7 @@ const Login = () => {
           };
           setUser(newUser);
           setLoading(false);
-          navigate("/user");
+          setTimeout(() => navigate("/user"), 500);
         }
       } else {
         setError(true);
