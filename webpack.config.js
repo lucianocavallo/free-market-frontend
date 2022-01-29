@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -37,10 +38,12 @@ module.exports = {
       filename: "index.html",
       favicon: "./public/favicon.png",
     }),
+    new Dotenv(),
   ],
   devServer: {
     open: true,
     historyApiFallback: true,
+    port: 5500,
   },
   devtool: "eval-source-map",
 };
