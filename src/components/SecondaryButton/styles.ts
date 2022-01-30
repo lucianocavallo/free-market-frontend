@@ -32,7 +32,7 @@ const Button = styled.button`
     display: block;
     width: 160px;
     border-radius: 20px;
-    margin: 20px auto 50px;
+    margin: 20px auto;
   }
 `;
 
