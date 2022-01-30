@@ -38,6 +38,10 @@ const ContextProvider: React.FC = ({ children }) => {
     setFilter("");
   };
 
+  const addProducts = (newProducts: Product[]) => {
+    setProducts([...products, ...newProducts]);
+  };
+
   return (
     <Context.Provider
       value={{
@@ -51,6 +55,7 @@ const ContextProvider: React.FC = ({ children }) => {
         addToCart,
         removeFromCart,
         logout,
+        addProducts,
       }}
     >
       {children}

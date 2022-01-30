@@ -20,6 +20,20 @@ const Button = styled.button`
   &[disabled] {
     opacity: 0.2;
   }
+  &[disabled]:hover {
+    opacity: 0.2;
+    font-weight: 400;
+    border: 1px solid transparent;
+    background: ${vars.sc_blue};
+    color: ${vars.pr_white};
+    cursor: auto;
+  }
+  &.load-more {
+    display: block;
+    width: 160px;
+    border-radius: 20px;
+    margin: 20px auto 50px;
+  }
 `;
 
 export { Button };

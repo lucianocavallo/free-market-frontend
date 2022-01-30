@@ -14,15 +14,4 @@ const Div = styled.div`
   gap: 10px;
 `;
 
-const Button = styled.button`
-  display: flex;
-  align-items: center;
-  font-size: 30px;
-  margin: 20px auto 0;
-  padding: 16px 10px 12px;
-  line-height: 10px;
-  background: lightblue;
-  border-radius: 8px;
-`;
-
-export { Container, Div, Button };
+export { Container, Div };

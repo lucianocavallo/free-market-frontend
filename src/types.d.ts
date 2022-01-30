@@ -24,6 +24,7 @@ interface AppContext {
   addToCart?: (product: Product) => void | undefined;
   removeFromCart?: (product: Product) => void | undefined;
   logout?: (() => void) | undefined;
+  addProducts?: (newProducts: Products[]) => void;
 }
 
 type User =

@@ -16,6 +16,7 @@ const Container = styled.div`
   width: 100%;
   display: grid;
   place-content: center;
+  margin-top: 30px;
 `;
 
 const SubContainer = styled.div`
