@@ -1,3 +1,4 @@
+import { useState } from "react";
 import cart from "../../assets/icons/cart.svg";
 import menu from "../../assets/icons/menu.svg";
 import { Link } from "react-router-dom";
@@ -7,10 +8,15 @@ import {
   Button,
   EmailButton,
   MenuImg,
+  MenuButton,
   Figure,
 } from "./styles";
+import { DropdownMenu } from "../DropdownMenu";
 
 const Menu: React.FC<User> = ({ email }) => {
+  const [showDropdownMenu, setShowDropdownMenu] = useState(true);
+
+  const toggleShowMenu = () => setShowDropdownMenu(!showDropdownMenu);
   return (
     <Container>
       {email && <EmailButton>{email}</EmailButton>}
@@ -24,7 +30,10 @@ const Menu: React.FC<User> = ({ email }) => {
           </Link>
         </>
       )}
-      <MenuImg src={menu} alt="" />
+      <MenuButton onClick={toggleShowMenu}>
+        <MenuImg src={menu} alt="" />
+      </MenuButton>
+      {showDropdownMenu && <DropdownMenu email={email} />}
       <button>
         <Figure>
           <CartImg src={cart} alt="" />

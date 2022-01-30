@@ -2,6 +2,7 @@ import styled from "styled-components";
 import vars from "../../styles/vars";
 
 const Container = styled.div`
+  position: relative;
   display: inline-flex;
   margin-left: 10px;
   align-items: center;
@@ -45,14 +46,17 @@ const Button = styled.button`
   }
 `;
 
-const MenuImg = styled.img`
-  width: 30px;
+const MenuButton = styled.button`
   display: none;
-  margin-right: 15px;
-  margin-top: 3px;
   @media (max-width: 600px) {
-    display: inline-block;
+    display: flex;
   }
+`;
+
+const MenuImg = styled.img`
+  margin-right: 12px;
+  margin-top: 3px;
+  width: 30px;
 `;
 
 const CartImg = styled.img`
@@ -61,7 +65,6 @@ const CartImg = styled.img`
 
 const Figure = styled.figure`
   position: relative;
-  margin-top: 3px;
   & span {
     position: absolute;
     top: -5px;
@@ -81,4 +84,4 @@ const Figure = styled.figure`
   }
 `;
 
-export { Container, MenuImg, CartImg, Button, Figure, EmailButton };
+export { Container, MenuImg, MenuButton, CartImg, Button, Figure, EmailButton };

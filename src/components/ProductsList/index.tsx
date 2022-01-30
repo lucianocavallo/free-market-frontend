@@ -1,20 +1,26 @@
 import { useEffect, useContext } from "react";
 import { Context } from "../../context/context";
 import { Container, Div, Button } from "./styles";
-// import { ProductCard } from "../ProductCard";
+import { ProductCard } from "../ProductCard";
 import { Loading } from "../Loading";
 
 const ProductsList = () => {
   const context = useContext(Context);
   const { products, setProducts } = context;
-
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     if (setProducts) {
+  //       setProducts(productsMock);
+  //     }
+  //   }, 2000);
+  // }, []);
   // useEffect(() => {
   //   const url = `${process.env.API_URL}/products`;
 
   //   (async () => {
   //     const res = await fetch(url);
   //     const data = await res.json();
-  //     console.log(data);
+  //     console.log(JSON.stringify(data));
   //     const reversedData = data.reverse();
   //     if (setProducts !== undefined) {
   //       setProducts(reversedData);
@@ -26,9 +32,9 @@ const ProductsList = () => {
     <Container>
       {!products.length && <Loading />}
       <Div>
-        {/* {products.map((product) => (
+        {products.map((product) => (
           <ProductCard {...product} key={product._id} />
-        ))} */}
+        ))}
       </Div>
       <Button>Load more items</Button>
     </Container>
