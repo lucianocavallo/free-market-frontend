@@ -29,6 +29,27 @@ const Container = styled.div`
     margin-top: 10px;
     color: ${vars.pr_blue};
   }
+  & li details {
+    margin-top: 5px;
+    color: #313131;
+    display: flex;
+    flex-direction: column;
+  }
+  & li details summary {
+    font-size: 30px;
+    line-height: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  & li details button {
+    margin: 0;
+    font-size: 25px;
+    line-height: 30px;
+    width: 100%;
+    text-align: right;
+  }
 `;
 
 export { Container };

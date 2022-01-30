@@ -4,12 +4,16 @@ import { Context } from "../../context/context";
 import { useContext } from "react";
 
 const DropdownMenu: React.FC<User> = ({ email }) => {
-  const { setUser } = useContext(Context);
+  const { setUser, setFilter } = useContext(Context);
 
   const handleLogout = () => {
     if (setUser !== undefined) {
       setUser(undefined);
     }
+  };
+
+  const handleFilter = (category: string) => {
+    setFilter && setFilter(category);
   };
 
   return (
@@ -36,6 +40,19 @@ const DropdownMenu: React.FC<User> = ({ email }) => {
             </li>
           </>
         )}
+        <li>
+          <div />
+          <details>
+            <summary>Categories</summary>
+            <button onClick={() => handleFilter("")}>All</button>
+            <button onClick={() => handleFilter("clothes")}>Clothes</button>
+            <button onClick={() => handleFilter("electronics")}>
+              Electronics
+            </button>
+            <button onClick={() => handleFilter("furniture")}>Furniture</button>
+            <button onClick={() => handleFilter("toys")}>Toys</button>
+          </details>
+        </li>
       </ul>
     </Container>
   );
