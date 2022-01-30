@@ -7,7 +7,7 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
-  mode: "production",
+  mode: "development",
   module: {
     rules: [
       {
@@ -40,5 +40,10 @@ module.exports = {
     }),
     new Dotenv(),
   ],
-  devtool: false,
+  devServer: {
+    open: true,
+    historyApiFallback: true,
+    port: 5500,
+  },
+  devtool: "eval-source-map",
 };
