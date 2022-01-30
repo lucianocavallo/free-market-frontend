@@ -5,6 +5,8 @@ const initialState: AppContext = {
   setProducts: undefined,
   user: undefined,
   setUser: undefined,
+  filter: "",
+  setFilter: undefined,
 };
 
 const Context = createContext(initialState);
@@ -12,6 +14,7 @@ const Context = createContext(initialState);
 const ContextProvider: React.FC = ({ children }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [user, setUser] = useState<User>(undefined);
+  const [filter, setFilter] = useState("");
 
   return (
     <Context.Provider
@@ -20,6 +23,8 @@ const ContextProvider: React.FC = ({ children }) => {
         setProducts,
         user,
         setUser,
+        filter,
+        setFilter,
       }}
     >
       {children}

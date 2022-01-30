@@ -13,6 +13,8 @@ const Container = styled.div`
   padding: 10px;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.09);
   text-align: right;
+  z-index: 1;
+  border: 1px solid ${vars.pr_gray};
   & li a,
   button {
     font-size: 30px;

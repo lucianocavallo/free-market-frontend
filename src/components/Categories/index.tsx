@@ -1,32 +1,35 @@
 import { Container, Span, Button, Ul } from "./styles";
 // import arrow from "../../assets/icons/arrow_down.svg";
 
-const Categories = () => {
+const Categories: React.FC<AppContext> = ({ setFilter }) => {
+  const handleFilter = (category: string) => {
+    setFilter && setFilter(category);
+  };
   return (
     <Container>
       <Ul>
         <li>
-          <Button>
+          <Button onClick={() => handleFilter("")}>
             <Span>All</Span>
           </Button>
         </li>
         <li>
-          <Button>
+          <Button onClick={() => handleFilter("clothes")}>
             <Span>Clothes</Span>
           </Button>
         </li>
         <li>
-          <Button>
+          <Button onClick={() => handleFilter("electronics")}>
             <Span>Electronics</Span>
           </Button>
         </li>
         <li>
-          <Button>
+          <Button onClick={() => handleFilter("furniture")}>
             <Span>Furniture</Span>
           </Button>
         </li>
         <li>
-          <Button>
+          <Button onClick={() => handleFilter("toys")}>
             <Span>Toys</Span>
           </Button>
         </li>

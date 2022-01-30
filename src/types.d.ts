@@ -10,13 +10,16 @@ interface Product {
   price: number;
   image: string;
   category: string;
+  _id: string;
 }
 
 interface AppContext {
-  products: Product[] | any[];
-  setProducts: React.Dispatch<React.SetStateAction<Product[]>> | undefined;
-  user: User;
-  setUser: React.Dispatch<React.SetStateAction<User>> | undefined;
+  products?: Product[] | any[];
+  setProducts?: React.Dispatch<React.SetStateAction<Product[]>> | undefined;
+  user?: User;
+  setUser?: React.Dispatch<React.SetStateAction<User>> | undefined;
+  filter?: string;
+  setFilter?: React.Dispatch<React.SetStateAction<string>> | undefined;
 }
 
 type User =

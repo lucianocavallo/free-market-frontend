@@ -14,7 +14,7 @@ import {
 import { DropdownMenu } from "../DropdownMenu";
 
 const Menu: React.FC<User> = ({ email }) => {
-  const [showDropdownMenu, setShowDropdownMenu] = useState(true);
+  const [showDropdownMenu, setShowDropdownMenu] = useState(false);
 
   const toggleShowMenu = () => setShowDropdownMenu(!showDropdownMenu);
   return (
