@@ -38,7 +38,9 @@ module.exports = {
       filename: "index.html",
       favicon: "./public/favicon.png",
     }),
-    new Dotenv(),
+    new Dotenv({
+      systemvars: true,
+    }),
   ],
   devtool: false,
 };
