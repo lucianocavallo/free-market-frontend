@@ -29,20 +29,21 @@ const ProductsList = () => {
   //     }
   //   })();
   // }, []);
-
-  return (
-    <Container>
-      {!products.length && <Loading />}
-      <Div>
-        {!filter &&
-          products.map((product) => (
-            <ProductCard {...product} key={product._id} />
-          ))}
-        {filter && filterByCategory(products, ProductCard, filter)}
-      </Div>
-      <Button>Load more items</Button>
-    </Container>
-  );
+  if (products) {
+    return (
+      <Container>
+        {!products.length && <Loading />}
+        <Div>
+          {!filter &&
+            products.map((product) => (
+              <ProductCard {...product} key={product._id} />
+            ))}
+          {filter && filterByCategory(products, ProductCard, filter)}
+        </Div>
+        <Button>Load more items</Button>
+      </Container>
+    );
+  }
 };
 
 export { ProductsList };

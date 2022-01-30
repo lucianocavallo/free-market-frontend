@@ -41,10 +41,16 @@ const Info = styled.div`
     color: ${vars.pr_gray};
     margin-bottom: 15px;
   }
-  & img {
+  & button {
     position: absolute;
     top: -10px;
     right: 5px;
+  }
+  & button[disabled] {
+    opacity: 0.5;
+    cursor: auto;
+  }
+  & button img {
     width: 45px;
   }
 `;

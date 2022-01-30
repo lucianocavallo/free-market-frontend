@@ -1,8 +1,30 @@
 import { Container, Info } from "./styles";
-import addToCart from "../../assets/icons/add_to_cart.svg";
-import React from "react";
+import addToCartImg from "../../assets/icons/add_to_cart.svg";
+import React, { useState, useContext } from "react";
+import { Context } from "../../context/context";
 
-const ProductCard: React.FC<Product> = ({ name, price, image }) => {
+const ProductCard: React.FC<Product> = ({
+  _id,
+  category,
+  name,
+  price,
+  image,
+}) => {
+  const [addedToCart, setAddedToCart] = useState(false);
+  const { addToCart } = useContext(Context);
+
+  const handleAddToCart = async () => {
+    setAddedToCart(true);
+    const product: Product = {
+      _id,
+      category,
+      name,
+      price,
+      image,
+    };
+    addToCart && addToCart(product);
+  };
+
   return (
     <Container>
       <figure>
@@ -11,7 +33,9 @@ const ProductCard: React.FC<Product> = ({ name, price, image }) => {
       <Info>
         <h2>${price}</h2>
         <p>{name}</p>
-        <img src={addToCart} alt="" />
+        <button onClick={handleAddToCart} disabled={addedToCart}>
+          <img src={addToCartImg} alt="" />
+        </button>
       </Info>
     </Container>
   );
