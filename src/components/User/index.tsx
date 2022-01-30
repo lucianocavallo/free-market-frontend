@@ -6,12 +6,10 @@ import { SecondaryButton } from "../SecondaryButton";
 import { useNavigate } from "react-router-dom";
 
 const User: React.FC = () => {
-  const { user, setUser } = useContext(Context);
+  const { user, logout } = useContext(Context);
   const navigate = useNavigate();
   const handleLogOut = () => {
-    if (setUser !== undefined) {
-      setUser(undefined);
-    }
+    logout && logout();
   };
 
   const handleGoToProducts = () => {

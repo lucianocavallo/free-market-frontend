@@ -60,9 +60,7 @@ const Login = () => {
     }
   };
 
-  const handleNavigateClick = () => {
-    navigate("/signup");
-  };
+  const handleNavigateClick = () => navigate("/signup");
 
   return (
     <Container>

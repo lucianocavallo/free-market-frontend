@@ -22,11 +22,14 @@ const Ul = styled.ul`
 const Button = styled.button`
   display: flex;
   align-items: center;
-  padding: 3px 2px 1px;
+  padding: 4px 2px 1px 3px;
   border: 1px solid transparent;
   &.active {
-    border: 1px solid black;
+    border: 1px solid ${vars.pr_blue};
     border-radius: 8px;
+  }
+  &.active span {
+    color: ${vars.pr_blue};
   }
 `;
 

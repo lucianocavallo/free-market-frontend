@@ -10,6 +10,7 @@ const initialState: AppContext = {
   cart: [],
   addToCart: undefined,
   removeFromCart: undefined,
+  logout: undefined,
 };
 
 const Context = createContext(initialState);
@@ -31,6 +32,12 @@ const ContextProvider: React.FC = ({ children }) => {
     setCart(cartCopy);
   };
 
+  const logout = () => {
+    setUser(undefined);
+    setCart([]);
+    setFilter("");
+  };
+
   return (
     <Context.Provider
       value={{
@@ -43,6 +50,7 @@ const ContextProvider: React.FC = ({ children }) => {
         cart,
         addToCart,
         removeFromCart,
+        logout,
       }}
     >
       {children}

@@ -4,15 +4,11 @@ import { Context } from "../../context/context";
 import { useContext } from "react";
 
 const DropdownMenu: React.FC<User> = ({ email }) => {
-  const { setUser, setFilter } = useContext(Context);
+  const { setFilter, logout } = useContext(Context);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    if (setUser !== undefined) {
-      setUser(undefined);
-    }
-  };
+  const handleLogout = () => logout && logout();
 
   const handleFilter = (category: string) => {
     if (location.pathname !== "/") {

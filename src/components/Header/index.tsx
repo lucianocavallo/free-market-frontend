@@ -6,13 +6,13 @@ import { Container, Nav } from "./styles";
 import { Context } from "../../context/context";
 
 const Header: React.FC = () => {
-  const { user, setFilter } = useContext(Context);
+  const { user, filter, setFilter } = useContext(Context);
 
   return (
     <Container>
       <Nav>
         <Logo />
-        <Categories setFilter={setFilter} />
+        <Categories setFilter={setFilter} filter={filter} />
         <Menu email={user && user.email} />
       </Nav>
     </Container>
