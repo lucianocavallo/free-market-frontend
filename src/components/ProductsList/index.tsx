@@ -13,7 +13,7 @@ const ProductsList = () => {
       if (setProducts) {
         setProducts(productsMock.reverse());
       }
-    }, 2000);
+    }, 500);
   }, []);
 
   // useEffect(() => {

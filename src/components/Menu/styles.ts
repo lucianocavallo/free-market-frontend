@@ -11,7 +11,7 @@ const Container = styled.div`
   }
 `;
 
-const EmailButton = styled.button`
+const EmailButton = styled.p`
   font-size: 30px;
   margin-right: 8px;
   color: ${vars.pr_blue};
@@ -70,14 +70,16 @@ const Figure = styled.figure`
     top: -5px;
     right: -5px;
     border-radius: 50%;
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     width: 16px;
     height: 16px;
     background: ${vars.pr_blue};
     color: ${vars.pr_white};
     font-size: 20px;
-    line-height: 22px;
-    text-align: center;
+    padding-top: 2px;
+    padding-left: 1px;
   }
   @media (max-width: 600px) {
     margin-top: 10px;

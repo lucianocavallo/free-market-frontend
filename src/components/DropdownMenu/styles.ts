@@ -22,7 +22,7 @@ const Container = styled.div`
     line-height: 35px;
   }
   & div {
-    border-top: 1px solid ${vars.pr_gray};
+    border-top: 1px solid ${vars.sc_gray};
     margin-top: 5px;
   }
   & li button {
@@ -36,6 +36,7 @@ const Container = styled.div`
     flex-direction: column;
   }
   & li details summary {
+    color: ${vars.pr_gray};
     font-size: 30px;
     line-height: 35px;
     cursor: pointer;

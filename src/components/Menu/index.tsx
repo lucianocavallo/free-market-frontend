@@ -1,7 +1,6 @@
 import { useState } from "react";
-import cart from "../../assets/icons/cart.svg";
-import menu from "../../assets/icons/menu.svg";
 import { Link } from "react-router-dom";
+
 import {
   Container,
   CartImg,
@@ -11,15 +10,30 @@ import {
   MenuButton,
   Figure,
 } from "./styles";
+import cartImg from "../../assets/icons/cart.svg";
+import menu from "../../assets/icons/menu.svg";
 import { DropdownMenu } from "../DropdownMenu";
+import { Cart } from "../Cart";
+import { useContext } from "react";
+import { Context } from "../../context/context";
 
 const Menu: React.FC<User> = ({ email }) => {
   const [showDropdownMenu, setShowDropdownMenu] = useState(false);
+  const [showCart, setShowCart] = useState(false);
+  const { cart, removeFromCart } = useContext(Context);
 
   const toggleShowMenu = () => setShowDropdownMenu(!showDropdownMenu);
+
+  const handleShowCart = () => {
+    setShowCart(!showCart);
+  };
   return (
     <Container>
-      {email && <EmailButton>{email}</EmailButton>}
+      {email && (
+        <Link to="/user">
+          <EmailButton>{email}</EmailButton>
+        </Link>
+      )}
       {!email && (
         <>
           <Link to="/signup">
@@ -34,12 +48,13 @@ const Menu: React.FC<User> = ({ email }) => {
         <MenuImg src={menu} alt="" />
       </MenuButton>
       {showDropdownMenu && <DropdownMenu email={email} />}
-      <button>
+      <button onClick={handleShowCart}>
         <Figure>
-          <CartImg src={cart} alt="" />
-          <span></span>
+          <CartImg src={cartImg} alt="" />
+          <span>{cart && cart.length}</span>
         </Figure>
       </button>
+      {showCart && <Cart cart={cart} removeFromCart={removeFromCart} />}
     </Container>
   );
 };

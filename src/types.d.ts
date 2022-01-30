@@ -20,7 +20,7 @@ interface AppContext {
   setUser?: React.Dispatch<React.SetStateAction<User>> | undefined;
   filter?: string;
   setFilter?: React.Dispatch<React.SetStateAction<string>> | undefined;
-  cart?: Product[] | [];
+  cart?: Product[] | any[];
   addToCart?: (product: Product) => void | undefined;
   removeFromCart?: (product: Product) => void | undefined;
 }

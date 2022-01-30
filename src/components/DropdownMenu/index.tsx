@@ -1,10 +1,12 @@
 import { Container } from "./styles";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Context } from "../../context/context";
 import { useContext } from "react";
 
 const DropdownMenu: React.FC<User> = ({ email }) => {
   const { setUser, setFilter } = useContext(Context);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     if (setUser !== undefined) {
@@ -13,6 +15,9 @@ const DropdownMenu: React.FC<User> = ({ email }) => {
   };
 
   const handleFilter = (category: string) => {
+    if (location.pathname !== "/") {
+      navigate("/");
+    }
     setFilter && setFilter(category);
   };
 
