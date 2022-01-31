@@ -24,7 +24,7 @@ const Menu: React.FC<User> = ({ email }) => {
 
   const toggleShowMenu = () => setShowDropdownMenu(!showDropdownMenu);
 
-  const handleShowCart = () => {
+  const toggleShowCart = () => {
     setShowCart(!showCart);
   };
   return (
@@ -47,14 +47,22 @@ const Menu: React.FC<User> = ({ email }) => {
       <MenuButton onClick={toggleShowMenu}>
         <MenuImg src={menu} alt="" />
       </MenuButton>
-      {showDropdownMenu && <DropdownMenu email={email} />}
-      <button onClick={handleShowCart}>
+      {showDropdownMenu && (
+        <DropdownMenu toggleShowMenu={toggleShowMenu} email={email} />
+      )}
+      <button onClick={toggleShowCart}>
         <Figure>
           <CartImg src={cartImg} alt="" />
           <span>{cart && cart.length}</span>
         </Figure>
       </button>
-      {showCart && <Cart cart={cart} removeFromCart={removeFromCart} />}
+      {showCart && (
+        <Cart
+          cart={cart}
+          removeFromCart={removeFromCart}
+          toggleShowCart={toggleShowCart}
+        />
+      )}
     </Container>
   );
 };

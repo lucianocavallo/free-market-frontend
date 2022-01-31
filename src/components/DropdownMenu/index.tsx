@@ -3,18 +3,26 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Context } from "../../context/context";
 import { useContext } from "react";
 
-const DropdownMenu: React.FC<User> = ({ email }) => {
+const DropdownMenu: React.FC<DropdownMenuProps> = ({
+  email,
+  toggleShowMenu,
+}) => {
   const { setFilter, logout } = useContext(Context);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleLogout = () => logout && logout();
+  const handleLogout = () => {
+    logout && logout();
+    toggleShowMenu();
+  };
 
   const handleFilter = (category: string) => {
     if (location.pathname !== "/") {
       navigate("/");
     }
     setFilter && setFilter(category);
+    toggleShowMenu();
+    console.log("toggle");
   };
 
   return (
@@ -23,10 +31,14 @@ const DropdownMenu: React.FC<User> = ({ email }) => {
         {!email && (
           <>
             <li>
-              <Link to="/signup">Signup</Link>
+              <button onClick={toggleShowMenu}>
+                <Link to="/signup">Signup</Link>
+              </button>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <button onClick={toggleShowMenu}>
+                <Link to="/login">Login</Link>
+              </button>
             </li>
           </>
         )}

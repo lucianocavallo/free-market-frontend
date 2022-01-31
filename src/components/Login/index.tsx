@@ -1,7 +1,8 @@
 import React, { useRef, useState, useContext } from "react";
 import { PrimaryButton } from "../PrimaryButton";
 import { SecondaryButton } from "../SecondaryButton";
-import { Container, SubContainer, Form, Input } from "./styles";
+import { Form, Input } from "./styles";
+import { Box } from "../Box";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../context/context";
 import { Error } from "../Error";
@@ -63,40 +64,38 @@ const Login = () => {
   const handleNavigateClick = () => navigate("/signup");
 
   return (
-    <Container>
-      <SubContainer>
-        <Form onSubmit={handleSubmit} ref={form}>
-          <h2>Login</h2>
-          <label htmlFor="email">Email:</label>
-          <Input
-            className={error ? "error" : ""}
-            required
-            type="text"
-            id="email"
-            name="email"
-            onChange={handleOnInputChange}
+    <Box>
+      <Form onSubmit={handleSubmit} ref={form}>
+        <h2>Login</h2>
+        <label htmlFor="email">Email:</label>
+        <Input
+          className={error ? "error" : ""}
+          required
+          type="text"
+          id="email"
+          name="email"
+          onChange={handleOnInputChange}
+        />
+        <label htmlFor="password">Password:</label>
+        <Input
+          className={error ? "error" : ""}
+          required
+          type="password"
+          id="password"
+          name="password"
+          onChange={handleOnInputChange}
+        />
+        {error && (
+          <Error
+            error={"The email or password are incorrect, please try again"}
           />
-          <label htmlFor="password">Password:</label>
-          <Input
-            className={error ? "error" : ""}
-            required
-            type="password"
-            id="password"
-            name="password"
-            onChange={handleOnInputChange}
-          />
-          {error && (
-            <Error
-              error={"The email or password are incorrect, please try again"}
-            />
-          )}
-          <PrimaryButton disabled={loading}>Login</PrimaryButton>
-        </Form>
-        <SecondaryButton type="button" onClick={handleNavigateClick}>
-          Create Account
-        </SecondaryButton>
-      </SubContainer>
-    </Container>
+        )}
+        <PrimaryButton disabled={loading}>Login</PrimaryButton>
+      </Form>
+      <SecondaryButton type="button" onClick={handleNavigateClick}>
+        Create Account
+      </SecondaryButton>
+    </Box>
   );
 };
 

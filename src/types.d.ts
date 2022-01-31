@@ -41,3 +41,27 @@ type User =
 interface ErrorMsg {
   error: string;
 }
+
+interface DropdownMenuProps {
+  email?: string;
+  token?: string;
+  role?: string;
+  order?: {
+    products: string[];
+  };
+  toggleShowMenu: () => void;
+}
+interface CartProps {
+  products?: Product[] | any[];
+  setProducts?: React.Dispatch<React.SetStateAction<Product[]>> | undefined;
+  user?: User;
+  setUser?: React.Dispatch<React.SetStateAction<User>> | undefined;
+  filter?: string;
+  setFilter?: React.Dispatch<React.SetStateAction<string>> | undefined;
+  cart?: Product[] | any[];
+  addToCart?: (product: Product) => void | undefined;
+  removeFromCart?: (product: Product) => void | undefined;
+  logout?: (() => void) | undefined;
+  addProducts?: (newProducts: Products[]) => void;
+  toggleShowCart?: () => void;
+}

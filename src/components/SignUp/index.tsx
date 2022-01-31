@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Container, SubContainer, Form, Input } from "./styles";
+import { Form, Input } from "./styles";
 import { CustomerSchema } from "../../utils/YupSchemas";
 
+import { Box } from "../Box";
 import { PrimaryButton } from "../PrimaryButton";
 import { SecondaryButton } from "../SecondaryButton";
 import { Error } from "../Error";
@@ -70,26 +71,24 @@ const Signup = () => {
   };
 
   return (
-    <Container>
-      <SubContainer>
-        <Form onSubmit={handleSubmit} ref={form}>
-          <h2>Sign up</h2>
-          <label htmlFor="name">Name:</label>
-          <Input type="text" id="name" name="name" />
-          <label htmlFor="email">Email:</label>
-          <Input type="text" id="email" name="email" />
-          <label htmlFor="password">Password:</label>
-          <Input type="password" id="password" name="password" />
-          <label htmlFor="phone">Phone:</label>
-          <Input type="tel" id="phone" name="phone" />
-          {error && <Error error={error} />}
-          <PrimaryButton disabled={loading}>Create Account</PrimaryButton>
-        </Form>
-        <SecondaryButton type="button" onClick={handleLoginClick}>
-          Login
-        </SecondaryButton>
-      </SubContainer>
-    </Container>
+    <Box>
+      <Form onSubmit={handleSubmit} ref={form}>
+        <h2>Sign up</h2>
+        <label htmlFor="name">Name:</label>
+        <Input type="text" id="name" name="name" />
+        <label htmlFor="email">Email:</label>
+        <Input type="text" id="email" name="email" />
+        <label htmlFor="password">Password:</label>
+        <Input type="password" id="password" name="password" />
+        <label htmlFor="phone">Phone:</label>
+        <Input type="tel" id="phone" name="phone" />
+        {error && <Error error={error} />}
+        <PrimaryButton disabled={loading}>Create Account</PrimaryButton>
+      </Form>
+      <SecondaryButton type="button" onClick={handleLoginClick}>
+        Login
+      </SecondaryButton>
+    </Box>
   );
 };
 

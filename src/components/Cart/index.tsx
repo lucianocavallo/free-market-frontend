@@ -7,8 +7,13 @@ import {
   Total,
 } from "./styles";
 import closeImg from "../../assets/icons/close_cross.svg";
+import { Link } from "react-router-dom";
 
-const Cart: React.FC<AppContext> = ({ cart, removeFromCart }) => {
+const Cart: React.FC<CartProps> = ({
+  cart,
+  removeFromCart,
+  toggleShowCart,
+}) => {
   const handleRemoveFromCart = (product: Product) => {
     removeFromCart && removeFromCart(product);
   };
@@ -32,10 +37,17 @@ const Cart: React.FC<AppContext> = ({ cart, removeFromCart }) => {
           ))}
       </ProductsContainer>
       <Total>
-        <span>Total: $</span>
-        {cart &&
-          //@ts-ignore
-          cart.reduce((accum, product) => product.price + accum, 0)}
+        <span>
+          <span>Total: $</span>
+          <span>
+            {cart &&
+              //@ts-ignore
+              cart.reduce((accum, product) => product.price + accum, 0)}
+          </span>
+        </span>
+        <button onClick={toggleShowCart}>
+          <Link to="checkout">Go to checkout</Link>
+        </button>
       </Total>
     </Container>
   );

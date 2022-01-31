@@ -6,6 +6,7 @@ import { LoginPage } from "./pages/LoginPage";
 import { SignUpPage } from "./pages/SignupPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { UserPage } from "./pages/UserPage";
+import { CheckoutPage } from "./pages/CheckoutPage";
 import { useContext } from "react";
 import { Context } from "./context/context";
 
@@ -25,6 +26,10 @@ const App: React.FC = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/user" element={isUser ? <UserPage /> : <LoginPage />} />
+          <Route
+            path="/checkout"
+            element={isUser ? <CheckoutPage /> : <LoginPage />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>

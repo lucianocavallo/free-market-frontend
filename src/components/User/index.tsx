@@ -1,22 +1,14 @@
 import { useContext } from "react";
-import {
-  Container,
-  SubContainer,
-  MainDiv,
-  ProductsContainer,
-  Div,
-  DivInfo,
-  CloseImg,
-  Total,
-} from "./styles";
 import { Context } from "../../context/context";
+import { MainDiv } from "./styles";
+
+import { Box } from "../Box";
 import { PrimaryButton } from "../PrimaryButton";
 import { SecondaryButton } from "../SecondaryButton";
 import { useNavigate } from "react-router-dom";
-import closeImg from "../../assets/icons/close_cross.svg";
 
 const User: React.FC = () => {
-  const { cart, user, logout, removeFromCart } = useContext(Context);
+  const { user, logout } = useContext(Context);
   const navigate = useNavigate();
   const handleLogOut = () => {
     logout && logout();
@@ -26,45 +18,17 @@ const User: React.FC = () => {
     navigate("/");
   };
 
-  const handleRemoveFromCart = (product: Product) => {
-    removeFromCart && removeFromCart(product);
-  };
-
   return (
-    <Container>
-      <SubContainer>
-        <MainDiv>
-          <h2>Hello: </h2>
-          <h2> {user?.email}</h2>
-          <p>Your order: </p>
-          <ProductsContainer>
-            {cart &&
-              cart.map((product) => (
-                <Div key={product._id}>
-                  <img src={product.image} alt={product.name} />
-                  <DivInfo>
-                    <p>{product.name}</p>
-                    <p>${product.price}</p>
-                  </DivInfo>
-                  <button onClick={() => handleRemoveFromCart(product)}>
-                    <CloseImg src={closeImg} alt="" />
-                  </button>
-                </Div>
-              ))}
-          </ProductsContainer>
-          <Total>
-            <span>Total: $</span>
-            {cart &&
-              //@ts-ignore
-              cart.reduce((accum, product) => product.price + accum, 0)}
-          </Total>
-        </MainDiv>
-        <PrimaryButton onClick={handleLogOut}>Logout</PrimaryButton>
-        <SecondaryButton onClick={handleGoToProducts}>
-          Go to products
-        </SecondaryButton>
-      </SubContainer>
-    </Container>
+    <Box>
+      <MainDiv>
+        <h2>Hello: </h2>
+        <h2> {user?.email}</h2>
+      </MainDiv>
+      <PrimaryButton onClick={handleLogOut}>Logout</PrimaryButton>
+      <SecondaryButton onClick={handleGoToProducts}>
+        Go to products
+      </SecondaryButton>
+    </Box>
   );
 };
 

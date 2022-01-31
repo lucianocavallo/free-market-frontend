@@ -2,21 +2,39 @@ import styled from "styled-components";
 import vars from "../../styles/vars";
 
 const Container = styled.div`
-  position: absolute;
-  top: 50px;
-  right: -20px;
-  width: 360px;
-  background: white;
-  border: 1px solid ${vars.pr_gray};
-  z-index: 1;
-  border-radius: 16px;
+  width: 100%;
+  min-height: calc(100vh - 95px);
+  display: grid;
+  place-items: center;
+`;
+
+const SubContainer = styled.div`
+  padding: 20px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
   background: ${vars.pr_white};
-  border-radius: 16px;
-  padding: 10px;
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.09);
+`;
+
+const MainDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   & h2 {
+    font-size: 35px;
+    word-break: break-all;
+    text-align: center;
+    color: ${vars.pr_gray};
+  }
+  & h2:nth-child(1) {
+    color: ${vars.pr_blue};
+  }
+
+  & p {
+    color: ${vars.pr_gray};
     font-size: 30px;
-    margin-left: 10px;
+    line-height: 30px;
   }
 `;
 
@@ -60,17 +78,18 @@ const CloseImg = styled.img`
 `;
 
 const Total = styled.p`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   font-size: 35px;
   margin-top: 10px;
   margin-left: 10px;
-  & a {
-    font-size: 30px;
-    color: ${vars.pr_blue};
-    margin-right: 10px;
-  }
 `;
 
-export { Container, ProductsContainer, Div, CloseImg, DivInfo, Total };
+export {
+  Container,
+  SubContainer,
+  MainDiv,
+  Div,
+  DivInfo,
+  ProductsContainer,
+  CloseImg,
+  Total,
+};
