@@ -8,7 +8,7 @@ const SearchBar: React.FC = () => {
         <Input type="text" placeholder="Search products..." />
         <LineDiv />
         <figure>
-          <Img src={searchIcon} alt="" />
+          <Img src={searchIcon} alt="search icon" />
         </figure>
       </Container>
     </div>

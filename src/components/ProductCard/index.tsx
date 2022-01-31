@@ -36,14 +36,14 @@ const ProductCard: React.FC<Product> = ({
   return (
     <Container>
       <figure>
-        <img src={image} alt="" />
+        <img src={image} alt={name} />
       </figure>
       <Info>
         <h2>${price}</h2>
         <p>{name}</p>
         {user && (
           <button onClick={handleAddToCart} disabled={addedToCart}>
-            <img src={addToCartImg} alt="" />
+            <img src={addToCartImg} alt="add to cart image" />
           </button>
         )}
       </Info>

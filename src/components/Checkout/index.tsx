@@ -47,7 +47,7 @@ const Checkout: React.FC = () => {
                     <p>${product.price}</p>
                   </DivInfo>
                   <button onClick={() => handleRemoveFromCart(product)}>
-                    <CloseImg src={closeImg} alt="" />
+                    <CloseImg src={closeImg} alt="close arrow" />
                   </button>
                 </Div>
               ))}

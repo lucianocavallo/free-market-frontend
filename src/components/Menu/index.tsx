@@ -45,14 +45,14 @@ const Menu: React.FC<User> = ({ email }) => {
         </>
       )}
       <MenuButton onClick={toggleShowMenu}>
-        <MenuImg src={menu} alt="" />
+        <MenuImg src={menu} alt="menu image" />
       </MenuButton>
       {showDropdownMenu && (
         <DropdownMenu toggleShowMenu={toggleShowMenu} email={email} />
       )}
       <button onClick={toggleShowCart}>
         <Figure>
-          <CartImg src={cartImg} alt="" />
+          <CartImg src={cartImg} alt="cart image" />
           <span>{cart && cart.length}</span>
         </Figure>
       </button>

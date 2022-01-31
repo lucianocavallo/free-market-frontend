@@ -19,21 +19,23 @@ const ProductsList = () => {
         const res = await fetch(url);
         const data = await res.json();
         addProducts && addProducts(data);
-        setOffset && setOffset(offset + 8);
+        setOffset && offset && setOffset(offset + 8);
         setLoading(false);
       })();
     }
   }, []);
 
   const handleLoadMore = async () => {
-    if (offset > 32) return;
-    setLoading(true);
-    const url = `${process.env.API_URL}/products?limit=8&offset=${offset}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    addProducts && addProducts(data);
-    setOffset && setOffset(offset + 8);
-    setLoading(false);
+    if (offset) {
+      if (offset > 32) return;
+      setLoading(true);
+      const url = `${process.env.API_URL}/products?limit=8&offset=${offset}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      addProducts && addProducts(data);
+      setOffset && setOffset(offset + 8);
+      setLoading(false);
+    }
   };
 
   if (products) {
@@ -50,7 +52,7 @@ const ProductsList = () => {
         <SecondaryButton
           onClick={handleLoadMore}
           className="load-more"
-          disabled={offset > 32}
+          disabled={offset ? offset > 32 : false}
         >
           Load more items
         </SecondaryButton>
