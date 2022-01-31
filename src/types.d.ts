@@ -25,6 +25,8 @@ interface AppContext {
   removeFromCart?: (product: Product) => void | undefined;
   logout?: (() => void) | undefined;
   addProducts?: (newProducts: Products[]) => void;
+  offset: number;
+  setOffset: React.Dispatch<React.SetStateAction<number>> | undefined;
 }
 
 type User =
@@ -64,4 +66,6 @@ interface CartProps {
   logout?: (() => void) | undefined;
   addProducts?: (newProducts: Products[]) => void;
   toggleShowCart?: () => void;
+  offset: number;
+  setOffset: React.Dispatch<React.SetStateAction<number>> | undefined;
 }

@@ -42,7 +42,7 @@ const Login = () => {
             role: resData.user.role,
           };
           setUser(newUser);
-          setTimeout(() => navigate("/user"), 500);
+          navigate("/user");
         }
       } else {
         setError(true);

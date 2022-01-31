@@ -11,6 +11,8 @@ const initialState: AppContext = {
   addToCart: undefined,
   removeFromCart: undefined,
   logout: undefined,
+  offset: 8,
+  setOffset: undefined,
 };
 
 const Context = createContext(initialState);
@@ -20,6 +22,7 @@ const ContextProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<User>(undefined);
   const [filter, setFilter] = useState("");
   const [cart, setCart] = useState<Product[]>([]);
+  const [offset, setOffset] = useState<number>(8);
 
   const addToCart = (product: Product) => {
     setCart([...cart, product]);
@@ -56,6 +59,8 @@ const ContextProvider: React.FC = ({ children }) => {
         removeFromCart,
         logout,
         addProducts,
+        offset,
+        setOffset,
       }}
     >
       {children}

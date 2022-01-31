@@ -7,20 +7,22 @@ import { filterByCategory } from "../../utils/filterProducts";
 import { SecondaryButton } from "../SecondaryButton";
 
 const ProductsList = () => {
-  const { products, filter, addProducts } = useContext(Context);
-  const [offset, setOffset] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const { products, filter, addProducts, offset, setOffset } =
+    useContext(Context);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const url = `${process.env.API_URL}/products?limit=8&offset=${offset}`;
-    (async () => {
-      const res = await fetch(url);
-      const data = await res.json();
-      const reversedData = data.reverse();
-      addProducts && addProducts(reversedData);
-      setOffset(offset + 8);
-      setLoading(false);
-    })();
+    if (!products?.length) {
+      setLoading(true);
+      const url = `${process.env.API_URL}/products?limit=8&offset=0`;
+      (async () => {
+        const res = await fetch(url);
+        const data = await res.json();
+        addProducts && addProducts(data);
+        setOffset && setOffset(offset + 8);
+        setLoading(false);
+      })();
+    }
   }, []);
 
   const handleLoadMore = async () => {
@@ -30,7 +32,7 @@ const ProductsList = () => {
     const res = await fetch(url);
     const data = await res.json();
     addProducts && addProducts(data);
-    setOffset(offset + 8);
+    setOffset && setOffset(offset + 8);
     setLoading(false);
   };
 

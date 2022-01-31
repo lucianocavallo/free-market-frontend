@@ -5,7 +5,7 @@ import { MainDiv } from "./styles";
 import { Box } from "../Box";
 import { PrimaryButton } from "../PrimaryButton";
 import { SecondaryButton } from "../SecondaryButton";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const User: React.FC = () => {
   const { user, logout } = useContext(Context);
@@ -25,9 +25,9 @@ const User: React.FC = () => {
         <h2> {user?.email}</h2>
       </MainDiv>
       <PrimaryButton onClick={handleLogOut}>Logout</PrimaryButton>
-      <SecondaryButton onClick={handleGoToProducts}>
-        Go to products
-      </SecondaryButton>
+      <Link to="/">
+        <SecondaryButton>Go to products</SecondaryButton>
+      </Link>
     </Box>
   );
 };

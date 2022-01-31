@@ -26,10 +26,7 @@ const App: React.FC = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/user" element={isUser ? <UserPage /> : <LoginPage />} />
-          <Route
-            path="/checkout"
-            element={isUser ? <CheckoutPage /> : <LoginPage />}
-          />
+          <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>
