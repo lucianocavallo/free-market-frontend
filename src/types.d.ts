@@ -31,6 +31,7 @@ interface AppContext {
 
 type User =
   | {
+      userId?: string;
       email?: string;
       token?: string;
       role?: string;

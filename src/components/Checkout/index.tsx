@@ -18,9 +18,6 @@ import closeImg from "../../assets/icons/close_cross.svg";
 const Checkout: React.FC = () => {
   const { cart, user, logout, removeFromCart } = useContext(Context);
   const navigate = useNavigate();
-  const handleLogOut = () => {
-    logout && logout();
-  };
 
   const handleGoToProducts = () => {
     navigate("/");
@@ -28,6 +25,30 @@ const Checkout: React.FC = () => {
 
   const handleRemoveFromCart = (product: Product) => {
     removeFromCart && removeFromCart(product);
+  };
+
+  const handlePayment = async () => {
+    const uri = `${process.env.API_URL}/customers/by-user-id/${user?.userId}`;
+    const res = await fetch(uri);
+    const data = await res.json();
+    const customerId = data._id;
+    const products = cart?.map((product) => product._id);
+
+    const res2 = await fetch(`${process.env.API_URL}/orders`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${user?.token}`,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        customer: customerId,
+        products,
+      }),
+    });
+    console.log("res2", res2);
+    const data2 = await res2.json();
+    console.log("data2", data2);
   };
 
   return (
@@ -59,7 +80,9 @@ const Checkout: React.FC = () => {
               cart.reduce((accum, product) => product.price + accum, 0)}
           </Total>
         </MainDiv>
-        <PrimaryButton onClick={handleLogOut}>Proceed to payment</PrimaryButton>
+        <PrimaryButton onClick={handlePayment}>
+          Proceed to payment
+        </PrimaryButton>
         <SecondaryButton onClick={handleGoToProducts}>
           Continue shopping
         </SecondaryButton>

@@ -40,6 +40,7 @@ const Login = () => {
             email: resData.user.email,
             token: resData.token,
             role: resData.user.role,
+            userId: resData.user._id,
           };
           setUser(newUser);
           navigate("/user");
