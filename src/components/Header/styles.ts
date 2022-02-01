@@ -39,8 +39,15 @@ const MessageDiv = styled.div`
     box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.09);
     border: 1px solid ${vars.pr_blue};
     border-radius: 16px;
-    padding: 5px 15px 2px;
+    padding: 3px 10px 0px;
     line-height: 20px;
+  }
+  @media (max-width: 600px) {
+    h2 {
+      padding: 3px 10px 0px;
+      font-size: 18px;
+      line-height: 18px;
+    }
   }
 `;
 
