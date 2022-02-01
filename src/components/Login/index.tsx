@@ -1,7 +1,7 @@
 import React, { useRef, useState, useContext } from "react";
 import { PrimaryButton } from "../PrimaryButton";
 import { SecondaryButton } from "../SecondaryButton";
-import { Form, Input } from "./styles";
+import { Form, Input, Link } from "./styles";
 import { Box } from "../Box";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../context/context";
@@ -93,6 +93,7 @@ const Login = () => {
         )}
         <PrimaryButton disabled={loading}>Login</PrimaryButton>
       </Form>
+      <Link to="/recovery">forgot my password</Link>
       <SecondaryButton type="button" onClick={handleNavigateClick}>
         Create Account
       </SecondaryButton>

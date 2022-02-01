@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import vars from "../../styles/vars";
-import { Link as RouterLink } from "react-router-dom";
 
 const Form = styled.form`
   display: flex;
@@ -9,13 +8,8 @@ const Form = styled.form`
   & h2 {
     font-size: 40px;
     text-align: center;
-    color: ${vars.pr_gray};
-  }
-
-  & h2:nth-child(1) {
     color: ${vars.pr_blue};
   }
-
   & label {
     color: ${vars.pr_gray};
     font-size: 30px;
@@ -35,13 +29,14 @@ const Input = styled.input`
   }
 `;
 
-const Link = styled(RouterLink)`
-  display: block;
-  font-size: 28px;
-  line-height: 10px;
+const Message = styled.p`
+  width: 100%;
   text-align: center;
-  margin-top: 22px;
+  font-size: 25px;
+  line-height: 25px;
+  margin-top: 15px;
   color: ${vars.pr_blue};
+  font-weight: bold;
 `;
 
-export { Form, Input, Link };
+export { Form, Input, Message };

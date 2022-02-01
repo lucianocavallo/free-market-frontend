@@ -24,11 +24,19 @@ const Button = styled.button`
   align-items: center;
   padding: 4px 2px 1px 3px;
   border: 1px solid transparent;
+  margin: 0 1px;
   &.active {
     border: 1px solid ${vars.pr_blue};
     border-radius: 8px;
   }
   &.active span {
+    color: ${vars.pr_blue};
+  }
+  &:hover {
+    border: 1px solid ${vars.pr_blue};
+    border-radius: 8px;
+  }
+  &:hover span {
     color: ${vars.pr_blue};
   }
 `;
