@@ -1,13 +1,13 @@
 import { useEffect, useContext, useState } from "react";
 import { Context } from "../../context/context";
-import { Container, Div } from "./styles";
+import { Container, Div, MessageDiv } from "./styles";
 import { ProductCard } from "../ProductCard";
 import { Loading } from "../Loading";
 import { filterByCategory } from "../../utils/filterProducts";
 import { SecondaryButton } from "../SecondaryButton";
 
 const ProductsList = () => {
-  const { products, filter, addProducts, offset, setOffset } =
+  const { user, products, filter, addProducts, offset, setOffset } =
     useContext(Context);
   const [loading, setLoading] = useState(false);
 
@@ -41,6 +41,11 @@ const ProductsList = () => {
   if (products) {
     return (
       <Container>
+        {!user && (
+          <MessageDiv>
+            <h2>login or create an account to start shopping</h2>
+          </MessageDiv>
+        )}
         <Div>
           {!filter &&
             products.map((product) => (
