@@ -1,16 +1,18 @@
-import { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../../context/context";
-import { Container, Div, MessageDiv } from "./styles";
+import { Container, Div } from "./styles";
 import { ProductCard } from "../ProductCard";
 import { Loading } from "../Loading";
-import { filterByCategory } from "../../utils/filterProducts";
+import { filterProducts } from "../../utils/filterProducts";
 import { SecondaryButton } from "../SecondaryButton";
+import { SearchBar } from "../SearchBar";
 
 const ProductsList = () => {
   const appContext = useContext(Context);
   const { user, filter, addProducts, offset, setOffset } = appContext;
   const products = appContext.products as Product[];
   const [loading, setLoading] = useState(false);
+  const [searchString, setSearchString] = useState("");
 
   useEffect(() => {
     if (!products?.length) {
@@ -39,19 +41,22 @@ const ProductsList = () => {
     }
   };
 
+  const handleOnChange = (e: React.ChangeEvent) => {
+    // console.log((e.target as HTMLTextAreaElement).value);
+    setSearchString((e.target as HTMLTextAreaElement).value);
+  };
+
   return (
     <Container>
-      {!user && (
-        <MessageDiv>
-          <h2>login or create an account to start shopping</h2>
-        </MessageDiv>
-      )}
+      <SearchBar onChange={handleOnChange} />
       <Div>
         {!filter &&
+          !searchString &&
           products.map((product) => (
             <ProductCard {...product} key={product._id} />
           ))}
-        {filter && filterByCategory(products, ProductCard, filter)}
+        {(filter || searchString) &&
+          filterProducts(products, ProductCard, filter, searchString)}
       </Div>
       {loading && <Loading />}
       <SecondaryButton

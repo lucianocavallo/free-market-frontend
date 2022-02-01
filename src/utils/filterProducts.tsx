@@ -1,10 +1,28 @@
-const filterByCategory = (
+const filterProducts = (
   products: Product[],
   Component: React.FC<Product>,
-  category: string
+  category: string = "",
+  searchString: string
 ) => {
+  if (searchString && !category) {
+    return products
+      .filter((product) =>
+        product.name.toLowerCase().includes(searchString.toLowerCase())
+      )
+      .map((product) => <Component {...product} key={product._id} />);
+  }
+
   const categoryId = categoryToId(category);
+  if (category && !searchString) {
+    return products
+      .filter((product) => categoryId === product.category)
+      .map((product) => <Component {...product} key={product._id} />);
+  }
+
   return products
+    .filter((product) =>
+      product.name.toLowerCase().includes(searchString.toLowerCase())
+    )
     .filter((product) => categoryId === product.category)
     .map((product) => <Component {...product} key={product._id} />);
 };
@@ -22,4 +40,4 @@ const categoryToId = (category: string) => {
   }
 };
 
-export { filterByCategory };
+export { filterProducts };

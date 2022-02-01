@@ -1,17 +1,21 @@
 import searchIcon from "../../assets/icons/search.svg";
-import { Container, Input, Img, LineDiv } from "./styles";
+import { Container, SubContainer, Input, Img, LineDiv } from "./styles";
 
-const SearchBar: React.FC = () => {
+const SearchBar: React.FC<SearchBarProps> = ({ onChange }) => {
   return (
-    <div>
-      <Container>
-        <Input type="text" placeholder="Search products..." />
+    <Container>
+      <SubContainer>
+        <Input
+          type="text"
+          placeholder="Search products..."
+          onChange={onChange}
+        />
         <LineDiv />
         <figure>
           <Img src={searchIcon} alt="search icon" />
         </figure>
-      </Container>
-    </div>
+      </SubContainer>
+    </Container>
   );
 };
 

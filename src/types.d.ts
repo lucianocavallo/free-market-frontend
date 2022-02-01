@@ -70,3 +70,7 @@ interface CartProps {
   offset?: number;
   setOffset?: React.Dispatch<React.SetStateAction<number>> | undefined;
 }
+
+interface SearchBarProps {
+  onChange: (e: React.ChangeEvent) => void;
+}

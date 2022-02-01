@@ -2,21 +2,27 @@ import styled from "styled-components";
 import vars from "../../styles/vars";
 
 const Container = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+const SubContainer = styled.div`
   display: inline-flex;
   width: 500px;
   height: 40px;
-  margin-top: 2px;
+  margin: 2px 0 15px;
   background: ${vars.pr_white};
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   align-items: center;
-  padding: 0 0 0 15px;
+  padding: 0 0 0 10px;
   @media (max-width: 920px) {
     width: 300px;
   }
   @media (max-width: 600px) {
-    margin-bottom: 28px;
     width: 200px;
   }
 `;
@@ -39,4 +45,4 @@ const Img = styled.img`
   margin: 14px 10px 5px;
 `;
 
-export { Container, Input, Img, LineDiv };
+export { Container, Input, Img, LineDiv, SubContainer };
