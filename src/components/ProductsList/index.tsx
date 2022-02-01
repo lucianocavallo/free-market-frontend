@@ -7,8 +7,9 @@ import { filterByCategory } from "../../utils/filterProducts";
 import { SecondaryButton } from "../SecondaryButton";
 
 const ProductsList = () => {
-  const { user, products, filter, addProducts, offset, setOffset } =
-    useContext(Context);
+  const appContext = useContext(Context);
+  const { user, filter, addProducts, offset, setOffset } = appContext;
+  const products = appContext.products as Product[];
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -38,32 +39,30 @@ const ProductsList = () => {
     }
   };
 
-  if (products) {
-    return (
-      <Container>
-        {!user && (
-          <MessageDiv>
-            <h2>login or create an account to start shopping</h2>
-          </MessageDiv>
-        )}
-        <Div>
-          {!filter &&
-            products.map((product) => (
-              <ProductCard {...product} key={product._id} />
-            ))}
-          {filter && filterByCategory(products, ProductCard, filter)}
-        </Div>
-        {loading && <Loading />}
-        <SecondaryButton
-          onClick={handleLoadMore}
-          className="load-more"
-          disabled={offset ? offset > 32 : false}
-        >
-          Load more items
-        </SecondaryButton>
-      </Container>
-    );
-  }
+  return (
+    <Container>
+      {!user && (
+        <MessageDiv>
+          <h2>login or create an account to start shopping</h2>
+        </MessageDiv>
+      )}
+      <Div>
+        {!filter &&
+          products.map((product) => (
+            <ProductCard {...product} key={product._id} />
+          ))}
+        {filter && filterByCategory(products, ProductCard, filter)}
+      </Div>
+      {loading && <Loading />}
+      <SecondaryButton
+        onClick={handleLoadMore}
+        className="load-more"
+        disabled={offset ? offset > 32 : false}
+      >
+        Load more items
+      </SecondaryButton>
+    </Container>
+  );
 };
 
 export { ProductsList };
