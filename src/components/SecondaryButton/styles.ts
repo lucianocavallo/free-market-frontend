@@ -3,6 +3,7 @@ import vars from "../../styles/vars";
 
 const Button = styled.button`
   width: 100%;
+  height: 50px;
   background: ${vars.sc_blue};
   padding: 5px 0 3px;
   font-size: 30px;

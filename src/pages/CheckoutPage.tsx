@@ -16,4 +16,4 @@ const CheckoutPage: React.FC = () => {
   );
 };
 
-export { CheckoutPage };
+export default CheckoutPage;

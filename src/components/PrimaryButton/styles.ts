@@ -7,6 +7,7 @@ const Button = styled.button`
   padding: 5px 0 3px;
   font-size: 30px;
   line-height: 40px;
+  height: 50px;
   color: ${vars.pr_white};
   border-radius: 12px;
   margin-top: 20px;
