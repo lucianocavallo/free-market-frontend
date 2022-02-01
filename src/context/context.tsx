@@ -22,7 +22,7 @@ const ContextProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<User>(undefined);
   const [filter, setFilter] = useState("");
   const [cart, setCart] = useState<Product[]>([]);
-  const [offset, setOffset] = useState<number>(8);
+  const [offset, setOffset] = useState<number>(0);
 
   const addToCart = (product: Product) => {
     setCart([...cart, product]);

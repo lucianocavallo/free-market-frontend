@@ -9,7 +9,7 @@ import { SearchBar } from "../SearchBar";
 
 const ProductsList = () => {
   const appContext = useContext(Context);
-  const { user, filter, addProducts, offset, setOffset } = appContext;
+  const { filter, addProducts, offset, setOffset } = appContext;
   const products = appContext.products as Product[];
   const [loading, setLoading] = useState(false);
   const [searchString, setSearchString] = useState("");
@@ -22,7 +22,7 @@ const ProductsList = () => {
         const res = await fetch(url);
         const data = await res.json();
         addProducts && addProducts(data);
-        setOffset && offset && setOffset(offset + 8);
+        setOffset && typeof offset === "number" && setOffset(offset + 8);
         setLoading(false);
       })();
     }
@@ -42,7 +42,6 @@ const ProductsList = () => {
   };
 
   const handleOnChange = (e: React.ChangeEvent) => {
-    // console.log((e.target as HTMLTextAreaElement).value);
     setSearchString((e.target as HTMLTextAreaElement).value);
   };
 
